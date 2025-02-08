@@ -27,10 +27,13 @@
           # Allow non-free packages
           nixpkgs.config.allowUnfree = true;
 
+          # Automatic cleanup
           nix.gc = {
             automatic = true;
+            dates = "daily";
             options = "--delete-older-than 14d";
           };
+          nix.settings.auto-optimise-store = true;
 
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
