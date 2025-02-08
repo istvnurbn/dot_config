@@ -30,10 +30,15 @@
           # Automatic cleanup
           nix.gc = {
             automatic = true;
-            dates = "daily";
             options = "--delete-older-than 14d";
+            interval = [
+              {
+                Hour = 3;
+                Minute = 0;
+              }
+            ];
           };
-          nix.settings.auto-optimise-store = true;
+          nix.optimise.automatic = true;
 
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
