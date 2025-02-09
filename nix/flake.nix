@@ -50,6 +50,7 @@
             pkgs.openssh
             pkgs.git
             pkgs.mc
+            pkgs.tree
             pkgs.wget
             pkgs.rsync
             pkgs.hugo
@@ -133,11 +134,179 @@
           system.stateVersion = 5;
 
           # System settings
+          # General UI/UX
           system.defaults = {
-            NSGlobalDomain.AppleICUForce24HourTime = true;
-            NSGlobalDomain.AppleShowAllExtensions = true;
-            loginwindow.GuestEnabled = false;
+            NSGlobalDomain = {
+              AppleICUForce24HourTime = true;
+              AppleInterfaceStyleSwitchesAutomatically = true;
+              AppleKeyboardUIMode = 3;
+              AppleShowAllExtensions = true;
+              NSAutomaticSpellingCorrectionEnabled = false;
+              NSAutomaticWindowAnimationsEnabled = false;
+              NSDocumentSaveNewDocumentsToCloud = false;
+              NSNavPanelExpandedStateForSaveMode = true;
+              NSNavPanelExpandedStateForSaveMode2 = true;
+              NSTableViewDefaultSizeMode = 1;
+              NSWindowResizeTime = 0.0;
+              NSWindowShouldDragOnGesture = true;
+              PMPrintingExpandedStateForPrint = true;
+              PMPrintingExpandedStateForPrint2 = true;
+              "com.apple.mouse.tapBehavior" = 1;
+              "com.apple.springing.delay" = 0.0;
+              "com.apple.springing.enabled" = true;
+            };
+
+            alf.globalstate = 1;
+            alf.stealthenabled = 1;
+            SoftwareUpdate.AutomaticallyInstallMacOSUpdates = false;
+            LaunchServices.LSQuarantine = false;
+
+            WindowManager = {
+              EnableStandardClickToShowDesktop = false;
+              StageManagerHideWidgets = true;
+              StandardHideWidgets = true;
+            };
+
+            # Login screen
+            loginwindow = {
+              DisableConsoleAccess = true;
+              GuestEnabled = false;
+              PowerOffDisabledWhileLoggedIn = true;
+              RestartDisabledWhileLoggedIn = true;
+              ShutDownDisabledWhileLoggedIn = true;
+              SHOWFULLNAME = true;
+            };
+
+            screencapture.disable-shadow = true;
+            screencapture.location = "~/Pictures/Screenshots";
+
+            screensaver.askForPassword = true;
+            screensaver.askForPasswordDelay = 0;
+
+            # Finder
+            finder = {
+              # AppleShowAllExtensions = true;
+              FXDefaultSearchScope = "SCcf";
+              FXEnableExtensionChangeWarning = false;
+              FXPreferredViewStyle = "Nlsv";
+              FXRemoveOldTrashItems = true;
+              NewWindowTarget = "Home";
+              QuitMenuItem = true;
+              ShowMountedServersOnDesktop = true;
+              ShowPathbar = true;
+              ShowStatusBar = true;
+              _FXSortFoldersFirst = true;
+              _FXSortFoldersFirstOnDesktop = true;
+            };
+
+            # Dock
+            dock = {
+              enable-spring-load-actions-on-all-items = true;
+              appswitcher-all-displays = true;
+              autohide = true;
+              autohide-delay = 0.0;
+              autohide-time-modifier = 0.0;
+              expose-animation-duration = 0.1;
+              launchanim = false;
+              minimize-to-application = true;
+              show-process-indicators = true;
+              show-recents = false;
+              showhidden = true;
+              wvous-br-corner = 1;
+              # persistent-apps = [
+              #   "/Applications/Safari.app"
+              # ];
+              # persistent-others = [
+              #   "~/Downloads"
+              # ];
+            };
           };
+
+          # Custom settings not available in nix-darwin (yet)
+          system.defaults.CustomSystemPreferences = {
+            # Privacy
+            "com.microsoft.office" = {
+              "DiagnosticDataTypePreference" = "ZeroDiagnosticData";
+            };
+            "com.apple.AdLib" = {
+              "allowIdentifierForAdvertising" = false;
+              "allowApplePersonalizedAdvertising" = false;
+              "forceLimitAdTracking" = true;
+            };
+            "NSGlobalDomain" = {
+              "WebAutomaticSpellingCorrectionEnabled" = true;
+            };
+            "com.apple.systempreferences" = {
+              "NSQuitAlwaysKeepsWindows" = false;
+            };
+            "com.apple.Siri" = {
+              "StatusMenuVisible" = false;
+              "UserHasDeclinedEnable" = false;
+            };
+            "com.apple.systemuiserver" = {
+              "NSStatusItem Visible Siri" = 0;
+            };
+            "com.apple.SetupAssistant" = {
+              "DidSeeSiriSetup" = true;
+            };
+            "com.apple.assistant.support" = {
+              "Assistant Enabled" = false;
+            };
+            "com.apple.assistant.backedup" = {
+              "Use device speaker for TTS" = 3;
+            };
+            "com.apple.desktopservices" = {
+              "DSDontWriteNetworkStores" = true;
+              "DSDontWriteUSBStores" = true;
+            };
+            "com.apple.finder" = {
+              "DisableAllAnimations" = true;
+              "WarnOnEmptyTrash" = false;
+            };
+            "com.apple.print.PrintingPrefs" = {
+              "Quit When Finished" = true;
+            };
+            # Mail
+            "com.apple.mail" = {
+              "DisableInlineAttachmentViewing" = true;
+              "AddressesIncludeNameOnPasteboard" = false;
+              "DisableReplyAnimations" = true;
+              "DisableSendAnimations" = true;
+            };
+            # Activity Monitor
+            "com.apple.ActivityMonitor" = {
+              "OpenMainWindow" = true;
+              "IconType" = 5;
+              "ShowCategory" = 0;
+              "SortColumn" = "CPUUsage";
+              "SortDirection" = 0;
+            };
+            # Mac App Store
+            "com.apple.SoftwareUpdate" = {
+              "AutomaticCheckEnabled" = true;
+              "ScheduleFrequency" = 1;
+            };
+            # TextEdit
+            "com.apple.TextEdit" = {
+              "NSShowAppCentricOpenPanelInsteadOfUntitledFile" = false;
+              "RichText" = 0;
+              "PlainTextEncoding" = 4;
+              "PlainTextEncodingForWrite" = 4;
+            };
+            # Disk Utility
+            "com.apple.DiskUtility" = {
+              "DUDebugMenuEnabled" = true;
+              "advanced-image-options" = true;
+            };
+            "com.apple.ImageCapture" = {
+              "disableHotPlug" = true;
+            };
+            "com.apple.TimeMachine" = {
+              "DoNotOfferNewDisksForBackup" = true;
+            };
+          };
+
+          system.startup.chime = false;
 
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
