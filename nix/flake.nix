@@ -137,6 +137,7 @@
           # General UI/UX
           system.defaults = {
             NSGlobalDomain = {
+              AppleLocale = "en_HU";
               AppleICUForce24HourTime = true;
               AppleInterfaceStyleSwitchesAutomatically = true;
               AppleKeyboardUIMode = 3;
@@ -171,9 +172,9 @@
             loginwindow = {
               DisableConsoleAccess = true;
               GuestEnabled = false;
-              PowerOffDisabledWhileLoggedIn = true;
-              RestartDisabledWhileLoggedIn = true;
-              ShutDownDisabledWhileLoggedIn = true;
+              PowerOffDisabledWhileLoggedIn = false;
+              RestartDisabledWhileLoggedIn = false;
+              ShutDownDisabledWhileLoggedIn = false;
               SHOWFULLNAME = true;
             };
 
