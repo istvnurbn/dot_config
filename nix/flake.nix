@@ -137,7 +137,6 @@
           # General UI/UX
           system.defaults = {
             NSGlobalDomain = {
-              AppleLocale = "en_HU";
               AppleICUForce24HourTime = true;
               AppleInterfaceStyleSwitchesAutomatically = true;
               AppleKeyboardUIMode = 3;
@@ -235,7 +234,8 @@
               "forceLimitAdTracking" = true;
             };
             "NSGlobalDomain" = {
-              "WebAutomaticSpellingCorrectionEnabled" = true;
+              "WebAutomaticSpellingCorrectionEnabled" = false;
+              "AppleLocale" = "en_HU";
             };
             "com.apple.systempreferences" = {
               "NSQuitAlwaysKeepsWindows" = false;
