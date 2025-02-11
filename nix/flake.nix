@@ -69,6 +69,7 @@
             pkgs.localsend
             pkgs.brave
             pkgs.iina
+            pkgs.vscodium
             # pkgs.tailscale
             # pkgs.handbrake
             # pkgs.picard
