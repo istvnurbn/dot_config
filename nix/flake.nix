@@ -27,19 +27,6 @@
           # Allow non-free packages
           nixpkgs.config.allowUnfree = true;
 
-          # Automatic cleanup
-          nix.gc = {
-            automatic = true;
-            options = "--delete-older-than 14d";
-            interval = [
-              {
-                Hour = 3;
-                Minute = 0;
-              }
-            ];
-          };
-          nix.optimise.automatic = true;
-
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
@@ -61,20 +48,30 @@
             pkgs.pv
             pkgs.gawk
             pkgs.btop
-            pkgs.meslo-lgs-nf
             pkgs.fzf
             pkgs.zoxide
+            pkgs.imagemagick
+            pkgs.bat
             # Graphical stuff
             pkgs.zed-editor
             pkgs.localsend
             pkgs.brave
             pkgs.iina
-            pkgs.vscodium
             # pkgs.tailscale
             # pkgs.handbrake
             # pkgs.picard
             # pkgs.calibre
             # pkgs.protonmail-desktop
+          ];
+
+          fonts.packages = [
+            pkgs.iosevka
+            pkgs.ibm-plex
+            pkgs.source-code-pro
+            pkgs.source-sans-pro
+            pkgs.source-serif-pro
+            #   pkgs.meslo-lgs-nf
+            #   pkgs.nerd-fonts.zed-mono
           ];
 
           homebrew = {
@@ -99,13 +96,13 @@
               "git-credential-manager"
               "imageoptim"
               "jordanbaird-ice"
-              "pearcleaner"
               "raindropio"
               "tailscale"
               "tor-browser"
-              "utm"
-              "librewolf"
               "messenger"
+              "librewolf"
+              "utm"
+              "lm-studio"
             ];
 
             masApps = {
