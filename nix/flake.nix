@@ -65,13 +65,16 @@
           ];
 
           fonts.packages = [
-            pkgs.iosevka
-            pkgs.ibm-plex
-            pkgs.source-code-pro
-            pkgs.source-sans-pro
-            pkgs.source-serif-pro
             #   pkgs.meslo-lgs-nf
             #   pkgs.nerd-fonts.zed-mono
+            pkgs.iosevka
+            pkgs.ibm-plex
+            pkgs.fira-code
+            pkgs.source-code-pro
+            pkgs.source-sans-pro
+            pkgs.fira-sans
+            pkgs.source-serif-pro
+            pkgs.montserrat
           ];
 
           homebrew = {
@@ -102,13 +105,16 @@
               "messenger"
               "librewolf"
               "utm"
-              "lm-studio"
+              "spotify"
+              "musicbrainz-picard"
+              "kid3"
             ];
 
             masApps = {
               "Amphetamine" = 937984704;
               "BitWarden" = 1352778147;
               "Magnet" = 441258766;
+              "Darkroom" = 953286746;
             };
           };
 
