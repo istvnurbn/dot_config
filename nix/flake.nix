@@ -43,6 +43,7 @@
             pkgs.hugo
             pkgs.lame
             pkgs.flac
+            pkgs.cddiscid
             pkgs.libcdio-paranoia
             pkgs.exiftool
             pkgs.pv
@@ -85,6 +86,7 @@
 
             brews = [
               "imessage-exporter"
+              "abcde"
             ];
 
             caskArgs.no_quarantine = true;
@@ -108,6 +110,7 @@
               "spotify"
               "musicbrainz-picard"
               "kid3"
+              "tiny-player"
             ];
 
             masApps = {
