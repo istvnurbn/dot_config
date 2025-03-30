@@ -76,6 +76,7 @@
             pkgs.fira-sans
             pkgs.source-serif-pro
             pkgs.montserrat
+            pkgs.libertine-g
           ];
 
           homebrew = {
@@ -111,6 +112,8 @@
               "musicbrainz-picard"
               "kid3"
               "tiny-player"
+              "libreoffice"
+              "handbrake"
             ];
 
             masApps = {
