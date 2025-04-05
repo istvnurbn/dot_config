@@ -114,6 +114,7 @@
               "tiny-player"
               "libreoffice"
               "handbrake"
+              "rustdesk"
             ];
 
             masApps = {
