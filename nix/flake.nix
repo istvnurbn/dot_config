@@ -115,6 +115,7 @@
               "libreoffice"
               "handbrake"
               "rustdesk"
+              "mos"
             ];
 
             masApps = {
