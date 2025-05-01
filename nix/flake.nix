@@ -68,15 +68,15 @@
           fonts.packages = [
             #   pkgs.meslo-lgs-nf
             #   pkgs.nerd-fonts.zed-mono
-            pkgs.iosevka
+            #   pkgs.iosevka
             pkgs.ibm-plex
             pkgs.fira-code
             pkgs.source-code-pro
             pkgs.source-sans-pro
             pkgs.fira-sans
             pkgs.source-serif-pro
-            pkgs.montserrat
-            pkgs.libertine-g
+            #   pkgs.montserrat
+            #   pkgs.libertine-g
           ];
 
           homebrew = {
