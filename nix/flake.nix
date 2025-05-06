@@ -116,6 +116,7 @@
               "handbrake"
               "rustdesk"
               "mos"
+              "balenaetcher"
             ];
 
             masApps = {
