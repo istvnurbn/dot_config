@@ -53,6 +53,7 @@
             pkgs.zoxide
             pkgs.imagemagick
             pkgs.bat
+            pkgs.qpdf
             # Graphical stuff
             pkgs.zed-editor
             pkgs.localsend
