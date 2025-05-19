@@ -118,6 +118,7 @@
               "rustdesk"
               "mos"
               "balenaetcher"
+              "alacritty"
             ];
 
             masApps = {
